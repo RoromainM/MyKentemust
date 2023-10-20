@@ -1,0 +1,61 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+  
+  header {
+    background-color: black;
+    width: 100%;
+    text-align: center;
+    padding: 20px 0; 
+  }
+
+  
+  .headerImg {
+    width: 155px;
+    height: auto; 
+  }
+
+  .titre {
+    text-align: center;
+  }
+  
+  .imgList {
+    width: 200px;
+    height: 200px;
+    margin-left: 10px;
+    border-radius: 15%;
+  }
+  
+  .Article {
+    width: fit-content;
+    text-align: center;
+    text-decoration: underline;
+    margin-right: 20px;
+    margin-left: 20px;
+  }
+
+  .listArticles {
+    flex-wrap: wrap;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+  }
+  
+  a {
+    text-decoration: none;
+    color: black;
+  }
+  
+  /* Media queries pour les écrans plus petits */
+  @media (max-width: 768px) {
+    header {
+      padding: 10px 0; /* Ajustez l'espace en haut et en bas pour les écrans plus petits */
+    }
+  
+    .imgList {
+      max-width: 100%; /* Les images occupent 100% de la largeur du conteneur pour les écrans plus petits */
+    }
+  }
+  
