@@ -38,4 +38,8 @@ document.addEventListener("DOMContentLoaded", function () {
   noeudPapillon.style.width = "200px"; 
   noeudPapillon.style.height = "auto"; 
   noeudPapillon.style.margin = "10px";
+
+  // Appelez la fonction de personnalisation initialement pour afficher l'image par défaut
+  personnaliserNoeudPapillon();
+
 });
