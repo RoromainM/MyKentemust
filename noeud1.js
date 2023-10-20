@@ -1,16 +1,15 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // Sélectionnez les éléments du DOM
+  // Sélectionne les éléments du DOM
   const selectCouleur1 = document.getElementById("selectCouleur1");
   const selectCouleur2 = document.getElementById("selectCouleur2");
-  const resultatNoeudPapillon = document.getElementById(
-    "resultatNoeudPapillon"
-  );
+  const resultatNoeudPapillon = document.getElementById("resultatNoeudPapillon");
   const noeudPapillon = document.getElementById("noeudPapillon");
 
+  // Charge l'image par défaut
+  const cheminImageDefaut = `Assets/noeud1/bleubleu.jpg`;
+  noeudPapillon.src = cheminImageDefaut;
 
-
-  
-  // Écoutez les changements dans les sélecteurs de couleur
+  // Écoute les changements dans les sélecteurs de couleur
   selectCouleur1.addEventListener("change", personnaliserNoeudPapillon);
   selectCouleur2.addEventListener("change", personnaliserNoeudPapillon);
 
@@ -18,33 +17,25 @@ document.addEventListener("DOMContentLoaded", function () {
     const couleur1 = selectCouleur1.value;
     const couleur2 = selectCouleur2.value;
 
-
-    // Mettez à jour l'image du nœud papillon en fonction des couleurs sélectionnées
+    
     const cheminImage = `Assets/noeud1/${couleur1}${couleur2}.jpg`;
 
     resultatNoeudPapillon.style.display = "block";
 
-    // Vérifiez si le fichier image existe avant de l'afficher
-    const imageExiste = imageExisteDansAssets(cheminImage);
-    if (imageExiste) {
-      noeudPapillon.src = cheminImage;
-    } else {
-      resultatNoeudPapillon.style.display = "none";
-    }
-  }
-
-  function imageExisteDansAssets(cheminImage) {
+    // Crée une nouvelle image de manière asynchrone
     const img = new Image();
+    img.onload = function () {
+      // Lorsque l'image est chargée avec succès
+      noeudPapillon.src = cheminImage;
+    };
+    img.onerror = function () {
+      // En cas d'erreur de chargement de l'image
+      resultatNoeudPapillon.style.display = "none";
+    };
     img.src = cheminImage;
-    return img.width !== 0 && img.height !== 0;
   }
 
-  noeudPapillon.style.width = "200px"; // Change la largeur à 200 pixels
-  noeudPapillon.style.height = "auto"; // Laisse la hauteur ajustée automatiquement pour conserver les proportions
+  noeudPapillon.style.width = "200px"; 
+  noeudPapillon.style.height = "auto"; 
   noeudPapillon.style.margin = "10px";
-
-  // Appelez la fonction de personnalisation initialement pour afficher l'image par défaut
-  personnaliserNoeudPapillon();
-
-  
 });

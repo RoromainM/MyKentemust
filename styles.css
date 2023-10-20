@@ -47,6 +47,10 @@ body, html {
     text-decoration: none;
     color: black;
   }
+
+  .resultatNoeudPapillon {
+    align-items: center;
+  }
   
   /* Media queries pour les écrans plus petits */
   @media (max-width: 768px) {

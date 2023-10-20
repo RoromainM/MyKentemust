@@ -42,4 +42,6 @@ document.addEventListener("DOMContentLoaded", function () {
     // Appelez la fonction de personnalisation initialement pour afficher l'image par défaut
     personnaliserNoeudPapillon();
   });
+
+ 
   
